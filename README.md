@@ -1,5 +1,5 @@
 # Terraform Examples for AWS and Vsphere
-My Terraform Examples, specifically for Vsphere Development. Infrastructure-as-Code! Another absolutely brilliant project by the genius minds at Hashicorp.
+My Terraform Examples, specifically for Vsphere Development. Infrastructure-as-Code! Another absolutely brilliant project by the genius minds at Hashicorp.aaaaaa
 
 ## What is Terraform?
 From Terraform.io: "Terraform provides a common configuration to launch infrastructure — from physical and virtual servers to email and DNS providers. Once launched, Terraform safely and efficiently changes infrastructure as the configuration is evolved." Infrastructure-as-Code!!!!
