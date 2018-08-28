@@ -3,23 +3,23 @@ variable "node_count" {default = 1} # Define the number of instances
 
 # Configure the VMware vSphere Provider. ENV Variables set for Username and Passwd.
 provider "vsphere" {
- vsphere_server = "vcenter.server"
+ vsphere_server = "10.130.21.132"
 }
 
 # Define the VM resource
-resource "vsphere_virtual_machine" "example" {
+resource "vsphere_virtual_machine" "Worker" {
  name   = "node-${format("%02d", count.index+1)}"
  folder = "vm_folder"
  vcpu   = 2
- memory = 2048
- datacenter = "datacenter"
- cluster = "vsphereCluster"
+ memory = 4096
+ datacenter = "DC-Softlayer"
+ cluster = "SL_Cluster"
 
 # Define the Networking settings for the VM
  network_interface {
-   label = "VM Network"
-   ipv4_gateway = "10.1.1.1"
-   ipv4_address = "10.1.1.100"
+   label = "Private Network - vmnic0 vmnic2"
+   ipv4_gateway = "10.130.88.17"
+   ipv4_address = "10.130.88.1"
    ipv4_prefix_length = "24"
  }
 
@@ -29,13 +29,13 @@ resource "vsphere_virtual_machine" "example" {
 
 # Define the Disks and resources. The first disk should include the template.
  disk {
-   template = "my-centos7-template"
+   template = "Redhat7_Template"
    datastore = "vsanDatastore"
    type ="thin"
  }
 
  disk {
-   size = "5"
+   size = "15"
    datastore = "vsanDatastore"
    type ="thin"
  }
