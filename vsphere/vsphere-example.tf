@@ -18,8 +18,8 @@ resource "vsphere_virtual_machine" "Worker" {
 # Define the Networking settings for the VM
  network_interface {
    label = "Private Network - vmnic0 vmnic2"
-   ipv4_gateway = "10.130.88.17"
-   ipv4_address = "10.130.88.1"
+   ipv4_gateway = "10.130.88.1"
+   ipv4_address = "10.130.88.17"
    ipv4_prefix_length = "24"
  }
 
