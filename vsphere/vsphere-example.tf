@@ -30,13 +30,13 @@ resource "vsphere_virtual_machine" "Worker" {
 # Define the Disks and resources. The first disk should include the template.
  disk {
    template = "Redhat7_Template"
-   datastore = "vsanDatastore"
+   datastore = "Datastore01-iSCSI"
    type ="thin"
  }
 
  disk {
-   size = "15"
-   datastore = "vsanDatastore"
+   size = "10"
+   datastore = "Datastore01-iSCSI"
    type ="thin"
  }
 
