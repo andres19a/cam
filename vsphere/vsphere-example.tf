@@ -1,9 +1,22 @@
 # Variable Definition
 variable "node_count" {default = 1} # Define the number of instances
 
+variable "Worker_connection_user" {
+  type = "string"
+  default = "root"
+}
+
+variable "Worker_connection_password" {
+  type = "string"
+}
+
+variable "Worker_connection_host" {
+  type = "string"
+}
+
 # Configure the VMware vSphere Provider. ENV Variables set for Username and Passwd.
 provider "vsphere" {
- vsphere_server = "10.130.21.132"
+ vsphere_server = "${var.Worker_connection_user}"
 }
 
 # Define the VM resource
@@ -16,6 +29,12 @@ resource "vsphere_virtual_machine" "Worker" {
  cluster = "SL_Cluster"
 
 # Define the Networking settings for the VM
+  connection {
+    type = "ssh"
+    user = "${var.Worker_connection_user}"
+    password = "${var.Worker_connection_password}"
+    host = "${var.Worker_connection_host}"
+  }
  network_interface {
    label = "Private Network - vmnic0 vmnic2"
    ipv4_gateway = "10.130.88.1"

@@ -1,0 +1,14 @@
+{
+   "name": "vm-worker",
+   "description": "Description for vm-worker.",
+   "type": "userCreated",
+   "manifest": {
+     "template_type": "Terraform",
+     "template_format": "HCL",
+     "template_provider": "Other"
+   },
+   "metadata": {
+     "displayName": "vm-worker",
+     "bullets": []
+   }
+ }
