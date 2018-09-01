@@ -69,3 +69,8 @@ variable "CAM_cluster_name" {
   description = "Cluster name"
 }
 
+variable "network_network_name" {
+  type = "string"
+  description = "Generated"
+}
+

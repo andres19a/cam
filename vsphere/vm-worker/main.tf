@@ -4,6 +4,8 @@
 ##
 #####################################################################
 
+## REFERENCE {"vsphere_network":{"type": "vsphere_reference_network"}}
+
 terraform {
   required_version = "> 0.8.0"
 }
@@ -41,6 +43,11 @@ data "vsphere_resource_pool" "CAM_cluster" {
   datacenter_id = "${data.vsphere_datacenter.vm_1_datacenter_name.id}"
 }
 
+data "vsphere_network" "network" {
+  name          = "${var.network_network_name}"
+  datacenter_id = "${data.vsphere_datacenter.vm_1_datacenter.id}"
+}
+
 resource "vsphere_virtual_machine" "vm_1" {
   name          = "${var.vm_1_name}"
   datastore_id  = "${data.vsphere_datastore.vm_1_datastore.id}"
@@ -48,6 +55,9 @@ resource "vsphere_virtual_machine" "vm_1" {
   memory = "${var.vm_1_memory}"  # Memory allocation.
   guest_id = "${data.vsphere_virtual_machine.vm_1_template.guest_id}"
   resource_pool_id = "${data.vsphere_resource_pool.CAM_cluster.id}"
+  network_interface {
+    network_id = "${data.vsphere_network.network.id}"
+  }
   clone {
     template_uuid = "${data.vsphere_virtual_machine.vm_1_template.id}"
   }

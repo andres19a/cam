@@ -26,6 +26,10 @@
     {
       "name": "vsphere_virtual_machine_resource_pool",
       "label": "vsphere_virtual_machine Resource Pool"
+    },
+    {
+      "name": "vsphere_virtual_machine_networks",
+      "label": "vsphere_virtual_machine Networks"
     }
   ],
   "output_groups": [ ],
@@ -206,6 +210,20 @@
       "default": "",
       "validation": "",
       "group_name": "vsphere_virtual_machine_resource_pool",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "network_network_name",
+      "label": "Network Network Name",
+      "description": "Generated",
+      "type": "string",
+      "default": "",
+      "validation": "",
+      "group_name": "vsphere_virtual_machine_networks",
       "required": true,
       "secured": false,
       "hidden": false,
