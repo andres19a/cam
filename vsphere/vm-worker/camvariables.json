@@ -1,7 +1,14 @@
 {
-  "input_datatypes": [ ],
-  "input_namespaces": [ ],
-  "output_namespace": "",
+  "input_datatypes": [ 
+    {
+      "name": "vSphereCloud",
+      "label": "vSphere Cloud Parms"
+    },
+    {
+      "name": "vSphereVM",
+      "label": "vSphere Virtual Machine Parms"
+    }
+   ],
   "input_groups": [
     {
       "name": "Instances",
