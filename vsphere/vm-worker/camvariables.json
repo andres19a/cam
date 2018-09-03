@@ -172,7 +172,7 @@
       "label": "Vm 1 Template Name",
       "description": "Generated",
       "type": "string",
-      "default": "Redhat7_Template",
+      "default": "Redhat7TemplateThin",
       "validation": "",
       "group_name": "instances",
       "required": true,
