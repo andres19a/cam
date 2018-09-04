@@ -60,7 +60,21 @@ resource "vsphere_virtual_machine" "vm_1" {
   }
   clone {
     template_uuid = "${data.vsphere_virtual_machine.vm_1_template.id}"
+     customize {
+      linux_options {
+        host_name = "terraform-test"
+        domain    = "test.internal"
+      }
+
+      network_interface {
+        ipv4_address = "10.130.88.20"
+        ipv4_netmask = "24"
+      }
+
+      ipv4_gateway = "10.130.88.1"
+    }
   }
+  
   disk {
     name = "${var.vm_1_disk_name}"
     size = "${var.vm_1_disk_size}"
