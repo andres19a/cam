@@ -55,6 +55,9 @@ resource "vsphere_virtual_machine" "vm_1" {
   memory = "${var.vm_1_memory}"  # Memory allocation.
   guest_id = "${data.vsphere_virtual_machine.vm_1_template.guest_id}"
   resource_pool_id = "${data.vsphere_resource_pool.CAM_cluster.id}"
+  provisioner "local-exec" {
+      command = "ssh root@boot ./addworker.sh"
+  }
   network_interface {
     network_id = "${data.vsphere_network.network.id}"
   }
