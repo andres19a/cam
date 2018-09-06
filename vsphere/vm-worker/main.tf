@@ -62,12 +62,12 @@ resource "vsphere_virtual_machine" "vm_1" {
     template_uuid = "${data.vsphere_virtual_machine.vm_1_template.id}"
      customize {
       linux_options {
-        host_name = "terraform-test"
-        domain    = "test.internal"
+        host_name = "workerd"
+        domain    = "gbmdemo.com"
       }
 
       network_interface {
-        ipv4_address = "10.130.88.20"
+        ipv4_address = "10.130.88.21"
         ipv4_netmask = "24"
       }
 
