@@ -1,0 +1,14 @@
+{
+   "name": "VMAzure",
+   "description": "Description for VMAzure.",
+   "type": "userCreated",
+   "manifest": {
+     "template_type": "Terraform",
+     "template_format": "HCL",
+     "template_provider": "Other"
+   },
+   "metadata": {
+     "displayName": "VMAzure",
+     "bullets": []
+   }
+ }
