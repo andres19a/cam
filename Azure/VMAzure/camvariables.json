@@ -26,6 +26,14 @@
     {
       "name": "azurerm_network_interface_subnet",
       "label": "azurerm_network_interface Subnet"
+    },
+    {
+      "name": "azurerm_subnet_subnet",
+      "label": "azurerm_subnet Subnet"
+    },
+    {
+      "name": "azurerm_resource_group_resource_group",
+      "label": "azurerm_resource_group Resource Group"
     }
   ],
   "output_groups": [ ],
@@ -339,13 +347,27 @@
       "immutable_after_create": false
     },
     {
+      "name": "location",
+      "label": "Location",
+      "description": "Generated",
+      "type": "string",
+      "default": "East US",
+      "validation": "",
+      "group_name": "azurerm_resource_group_resource_group",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
       "name": "address_prefix",
       "label": "Address Prefix",
       "description": "Generated",
       "type": "string",
       "default": "10.0.0.0/24",
       "validation": "",
-      "group_name": "azurerm_network_interface_subnet",
+      "group_name": "azurerm_subnet_subnet",
       "required": true,
       "secured": false,
       "hidden": false,

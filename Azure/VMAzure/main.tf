@@ -19,12 +19,6 @@ provider "azurerm" {
 }
 
 
-data "azurerm_subnet" "newvm814" {
-  name                 = "newvm814"
-  virtual_network_name = "${.name}"
-  address_prefix       = "${var.address_prefix}"
-}
-
 resource "azurerm_virtual_machine" "VmLinux" {
   name                  = "${var.VmLinux_name}"
   location              = "${var.vm_location}"
@@ -60,10 +54,23 @@ resource "azurerm_virtual_machine" "VmLinux" {
 resource "azurerm_network_interface" "interface" {
   name                = "interface"
   location            = "${var.vm_location}"
-  resource_group_name = "${var.GBM_group_name}"
+  resource_group_name   = "${azurerm_resource_group.GBM.name}"
   ip_configuration {
     name                          = "${var.config}"
     private_ip_address_allocation = "Static"
-    subnet_id  = "${data.azurerm_subnet.newvm814.id}"
+    subnet_id  = "${azurerm_subnet.subnet.id}"
   }
 }
+
+resource "azurerm_subnet" "subnet" {
+  name                 = "subnet"
+  virtual_network_name = "${azurerm_network_interface.interface.name}"
+  address_prefix       = "${var.address_prefix}"
+  resource_group_name  = "${azurerm_resource_group.GBM.name}"
+}
+
+resource "azurerm_resource_group" "GBM" {
+  name     = "GBM"
+  location = "${var.location}"
+}
+

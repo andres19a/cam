@@ -121,6 +121,11 @@ variable "config" {
   description = "Generated"
 }
 
+variable "location" {
+  type = "string"
+  description = "Generated"
+}
+
 variable "address_prefix" {
   type = "string"
   description = "Generated"
