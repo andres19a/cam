@@ -4,8 +4,6 @@
 ##
 #####################################################################
 
-## REFERENCE {"azure_network":{"type": "azurerm_reference_network"}}
-
 terraform {
   required_version = "> 0.8.0"
 }
@@ -51,13 +49,20 @@ resource "azurerm_virtual_machine" "VmLinux" {
   delete_os_disk_on_termination = "${var.VmLinux_os_disk_delete}"
 }
 
+resource "azurerm_virtual_network" "azure_network" {
+  name                = "azure_network"
+  address_space       = ["${var.azurerm_network_address_space}"]
+  location            = "${var.location}"
+  resource_group_name = "${var.GBM_group_name}"
+}
+
 resource "azurerm_network_interface" "interface" {
   name                = "interface"
   location            = "${var.vm_location}"
-  resource_group_name   = "${azurerm_resource_group.GBM.name}"
+  resource_group_name = "${var.GBM_group_name}"
   ip_configuration {
     name                          = "${var.config}"
-    private_ip_address_allocation = "Static"
+    private_ip_address_allocation = "dynamic"
     subnet_id  = "${azurerm_subnet.subnet.id}"
   }
 }
@@ -66,11 +71,6 @@ resource "azurerm_subnet" "subnet" {
   name                 = "subnet"
   virtual_network_name = "${azurerm_network_interface.interface.name}"
   address_prefix       = "${var.address_prefix}"
-  resource_group_name  = "${azurerm_resource_group.GBM.name}"
-}
-
-resource "azurerm_resource_group" "GBM" {
-  name     = "GBM"
-  location = "${var.location}"
+  resource_group_name  = "${var.GBM_group_name}"
 }
 

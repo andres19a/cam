@@ -57,17 +57,17 @@ variable "VmLinux_azure_user_password" {
 
 variable "VmLinux_publisher" {
   type = "string"
-  default = "MicrosoftWindowsServer"
+  default = "Canonical"
 }
 
 variable "VmLinux_offer" {
   type = "string"
-  default = "WindowsServer"
+  default = "16.04.0-LTS"
 }
 
 variable "VmLinux_sku" {
   type = "string"
-  default = "Datacenter"
+  default = "16.04.0-LTS"
 }
 
 variable "VmLinux_version" {
@@ -116,12 +116,17 @@ variable "GBM_group_name" {
   default = "GBM"
 }
 
-variable "config" {
+variable "azurerm_network_address_space" {
   type = "string"
   description = "Generated"
 }
 
 variable "location" {
+  type = "string"
+  description = "Generated"
+}
+
+variable "config" {
   type = "string"
   description = "Generated"
 }
