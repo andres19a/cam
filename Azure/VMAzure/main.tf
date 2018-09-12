@@ -22,7 +22,6 @@ resource "azurerm_virtual_machine" "VmLinux" {
   location              = "${var.vm_location}"
   vm_size               = "${var.vm_size}"
   resource_group_name   = "${var.GBM_group_name}"
-  network_interface_ids = ["${azurerm_network_interface.interface.id}"]
   tags {
     Name = "${var.VmLinux_name}"
   }
@@ -56,20 +55,9 @@ resource "azurerm_virtual_network" "azure_network" {
   resource_group_name = "${var.GBM_group_name}"
 }
 
-resource "azurerm_network_interface" "interface" {
-  name                = "interface"
-  location            = "${var.vm_location}"
-  resource_group_name = "${var.GBM_group_name}"
-  ip_configuration {
-    name                          = "${var.config}"
-    private_ip_address_allocation = "dynamic"
-    subnet_id  = "${azurerm_subnet.subnet.id}"
-  }
-}
-
 resource "azurerm_subnet" "subnet" {
   name                 = "subnet"
-  virtual_network_name = "${azurerm_network_interface.interface.name}"
+  virtual_network_name = "${azurerm_virtual_network.azure_network.name}"
   address_prefix       = "${var.address_prefix}"
   resource_group_name  = "${var.GBM_group_name}"
 }
