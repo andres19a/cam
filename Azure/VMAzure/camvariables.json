@@ -365,6 +365,20 @@
       "immutable_after_create": false
     },
     {
+      "name": "config",
+      "label": "Config",
+      "description": "Generated",
+      "type": "string",
+      "default": "net",
+      "validation": "",
+      "group_name": "azurerm_network_interface_networks",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
       "name": "address_prefix",
       "label": "Address Prefix",
       "description": "Generated",
