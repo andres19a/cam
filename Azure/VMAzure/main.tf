@@ -14,6 +14,7 @@ provider "azurerm" {
   client_secret   = "${var.client_secret}"
   tenant_id       = "${var.tenant_id}"
   version = "~> 1.1"
+  ARM_SKIP_PROVIDER_REGISTRATION = "true"
 }
 
 
