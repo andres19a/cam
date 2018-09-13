@@ -69,7 +69,7 @@ resource "azurerm_network_interface" "interface" {
 
 resource "azurerm_subnet" "subnet" {
   name                 = "subnet"
-  virtual_network_name = "${azurerm_network_interface.interface.name}"
+  virtual_network_name = "${azurerm_virtual_network.azure_network.name}"
   address_prefix       = "${var.address_prefix}"
   resource_group_name  = "${var.GBM_group_name}"
 }
