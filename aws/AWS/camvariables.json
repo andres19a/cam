@@ -105,7 +105,7 @@
       "label": "Availability Zone",
       "description": "Generated",
       "type": "string",
-      "default": "us-east-2",
+      "default": "us-east-2a",
       "validation": "",
       "group_name": "instances",
       "required": true,
