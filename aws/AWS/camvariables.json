@@ -63,7 +63,7 @@
       "label": "Region",
       "description": "Generated",
       "type": "string",
-      "default": "us-east-1a",
+      "default": "us-east-1",
       "validation": "",
       "group_name": "instances",
       "required": true,
