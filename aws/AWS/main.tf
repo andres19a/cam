@@ -17,7 +17,7 @@ provider "aws" {
 
 resource "aws_instance" "aws_instance" {
   ami = "${var.aws_instance_ami}"
-  key_name = "${aws_key_pair.auth.id}"
+  key_name = "gbmssh"
   instance_type = "${var.aws_instance_aws_instance_type}"
   availability_zone = "${var.availability_zone}"
   tags {
