@@ -1,5 +1,10 @@
 {
-  "input_datatypes": [ ],
+  "input_datatypes": [
+    {
+      "name": "AWSCloud",
+      "label": "AWS Cloud Parms"
+    }
+  ],
   "input_namespaces": [ ],
   "output_namespace": "",
   "input_groups": [
@@ -35,7 +40,7 @@
       "label": "Aws Access Id",
       "description": "Generated",
       "type": "string",
-      "default": "AKIAICA2PD3EYZ3U5M4Q",
+      "default": "${awscloud.AccessId}",
       "validation": "",
       "group_name": "instances",
       "required": true,
@@ -49,7 +54,7 @@
       "label": "Aws Secret Key",
       "description": "Generated",
       "type": "string",
-      "default": "3bINg5Fi6Ky8DO+G3NzuEZaxqsLYn/mOJp6OUGFu",
+      "default": "${awscloud.secretkey}",
       "validation": "",
       "group_name": "instances",
       "required": true,
