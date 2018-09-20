@@ -1,5 +1,10 @@
 {
-  "input_datatypes": [ ],
+  "input_datatypes": [
+  {
+      "name": "azurevm",
+      "label": "Azure Cloud Parms"
+    }
+  ],
   "input_namespaces": [ ],
   "output_namespace": "",
   "input_groups": [
