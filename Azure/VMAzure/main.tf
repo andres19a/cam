@@ -23,6 +23,14 @@ resource "azurerm_virtual_machine" "VmLinux" {
   vm_size               = "${var.vm_size}"
   resource_group_name   = "${var.GBM_group_name}"
   network_interface_ids = ["${azurerm_network_interface.interface.id}"]
+  delete_data_disks_on_termination = "${var.managed_disk_data_disk_delete}"
+  storage_data_disk {
+    name            = "${azurerm_managed_disk.managed_disk.name}"
+    managed_disk_id = "${azurerm_managed_disk.managed_disk.id}"
+    create_option   = "${var.managed_disk_data_disk_create_option}"
+    lun             = "${var.managed_disk_data_disk_lun}"
+    disk_size_gb    = "${azurerm_managed_disk.managed_disk.disk_size_gb}"
+  }
   tags {
     Name = "${var.VmLinux_name}"
   }
@@ -72,5 +80,13 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = "${azurerm_virtual_network.azure_network.name}"
   address_prefix       = "${var.address_prefix}"
   resource_group_name  = "${var.GBM_group_name}"
+}
+
+resource "azurerm_managed_disk" "managed_disk" {
+  name                 = "${var.managed_disk_name}"
+  location             = "${var.managed_disk_data_disk_location}"
+  storage_account_type = "${var.managed_disk_data_disk_storage_account_type}"
+  create_option        = "${var.managed_disk_data_disk_create_option}"
+  disk_size_gb         = "${var.managed_disk_data_disk_size_gb}"
 }
 

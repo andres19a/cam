@@ -136,3 +136,40 @@ variable "address_prefix" {
   description = "Generated"
 }
 
+variable "managed_disk_name" {
+  type = "string"
+  description = "Generated"
+}
+
+variable "managed_disk_data_disk_location" {
+  type = "string"
+  description = "Generated"
+}
+
+variable "managed_disk_data_disk_storage_account_type" {
+  type = "string"
+  description = "Generated"
+}
+
+variable "managed_disk_data_disk_create_option" {
+  type = "string"
+  description = "Other choices are Import, Empty, Copy, FromImage"
+  default = "Empty"
+}
+
+variable "managed_disk_data_disk_size_gb" {
+  type = "string"
+  description = "Generated"
+}
+
+variable "managed_disk_data_disk_delete" {
+  type = "string"
+  description = "Delete the data disk automatically when deleting the VM"
+  default = "true"
+}
+
+variable "managed_disk_data_disk_lun" {
+  type = "string"
+  description = "Generated"
+}
+

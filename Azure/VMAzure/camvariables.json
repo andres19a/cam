@@ -1,10 +1,8 @@
 {
-  "input_datatypes": [
-  {
-      "name": "azurevm",
-      "label": "Azure Cloud Parms"
-    }
-  ],
+  "input_datatypes": [  {
+    "name": "azurevm",
+    "label": "Azure Cloud Parms"
+  } ],
   "input_namespaces": [ ],
   "output_namespace": "",
   "input_groups": [
@@ -43,6 +41,10 @@
     {
       "name": "networking",
       "label": "Networking"
+    },
+    {
+      "name": "azurerm_managed_disk_storage",
+      "label": "azurerm_managed_disk Storage"
     }
   ],
   "output_groups": [ ],
@@ -391,6 +393,104 @@
       "default": "10.0.1.0/24",
       "validation": "",
       "group_name": "azurerm_subnet_subnet",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_name",
+      "label": "Managed Disk Name",
+      "description": "Generated",
+      "type": "string",
+      "default": "mydiskos",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_location",
+      "label": "Managed Disk Data Disk Location",
+      "description": "Generated",
+      "type": "string",
+      "default": "eastus",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_storage_account_type",
+      "label": "Managed Disk Data Disk Storage Account Type",
+      "description": "Generated",
+      "type": "string",
+      "default": "Standard_LRS",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_create_option",
+      "label": "Managed Disk Data Disk Create Option",
+      "description": "Other choices are Import, Empty, Copy, FromImage",
+      "type": "string",
+      "default": "Empty",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_size_gb",
+      "label": "Managed Disk Data Disk Size Gb",
+      "description": "Generated",
+      "type": "string",
+      "default": "1023",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_delete",
+      "label": "Managed Disk Data Disk Delete",
+      "description": "Delete the data disk automatically when deleting the VM",
+      "type": "string",
+      "default": "true",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "managed_disk_data_disk_lun",
+      "label": "Managed Disk Data Disk Lun",
+      "description": "Generated",
+      "type": "string",
+      "default": "1",
+      "validation": "",
+      "group_name": "azurerm_managed_disk_storage",
       "required": true,
       "secured": false,
       "hidden": false,
