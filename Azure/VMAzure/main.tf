@@ -85,6 +85,7 @@ resource "azurerm_subnet" "subnet" {
 resource "azurerm_managed_disk" "managed_disk" {
   name                 = "${var.managed_disk_name}"
   location             = "${var.managed_disk_data_disk_location}"
+  resource_group_name  = "GBM"
   storage_account_type = "${var.managed_disk_data_disk_storage_account_type}"
   create_option        = "${var.managed_disk_data_disk_create_option}"
   disk_size_gb         = "${var.managed_disk_data_disk_size_gb}"
