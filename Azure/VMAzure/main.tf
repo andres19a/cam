@@ -27,9 +27,10 @@ resource "azurerm_virtual_machine" "VmLinux" {
   storage_data_disk {
     name            = "${azurerm_managed_disk.managed_disk.name}"
     managed_disk_id = "${azurerm_managed_disk.managed_disk.id}"
+    managed_disk_type = "Standard_LRS"
     create_option   = "${var.managed_disk_data_disk_create_option}"
     lun             = "${var.managed_disk_data_disk_lun}"
-    disk_size_gb    = "${azurerm_managed_disk.managed_disk.disk_size_gb}"
+    disk_size_gb    = "1023"
   }
   tags {
     Name = "${var.VmLinux_name}"
