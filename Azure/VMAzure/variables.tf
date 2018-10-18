@@ -136,32 +136,3 @@ variable "address_prefix" {
   description = "Generated"
 }
 
-variable "azure_disk_name" {
-  type = "string"
-  description = "Generated"
-}
-
-variable "azure_disk_managed_disk_type" {
-  type = "string"
-  description = "Must be either Standard_LRS or Premium_LRS."
-  default = "Standard_LRS"
-}
-
-variable "azure_disk_managed_disk_create_option" {
-  type = "string"
-  description = "Values are Attach, FromImage or Empty"
-  default = "Attach"
-}
-
-variable "azure_disk_managed_disk_lun" {
-  type = "string"
-  description = "Specifies the logical unit number of the data disk"
-  default = "2"
-}
-
-variable "azure_disk_managed_disk_size_gb" {
-  type = "string"
-  description = "Specifies the size of the data disk in gigabytes"
-  default = "1023"
-}
-

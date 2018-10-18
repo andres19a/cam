@@ -23,13 +23,6 @@ resource "azurerm_virtual_machine" "VmLinux" {
   vm_size               = "${var.vm_size}"
   resource_group_name   = "${var.GBM_group_name}"
   network_interface_ids = ["${azurerm_network_interface.interface.id}"]
-  storage_data_disk {
-    name             ="${var.azure_disk_name}"
-    managed_disk_type="${var.azure_disk_managed_disk_type}"
-    create_option   = "${var.azure_disk_managed_disk_create_option}"
-    lun             = "${var.azure_disk_managed_disk_lun}"
-    disk_size_gb    = "${var.azure_disk_managed_disk_size_gb}"
-  }
   tags {
     Name = "${var.VmLinux_name}"
   }
