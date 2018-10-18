@@ -64,6 +64,7 @@ resource "azurerm_network_interface" "interface" {
     name                          = "${var.config}"
     private_ip_address_allocation = "Dynamic"
     subnet_id  = "${azurerm_subnet.subnet.id}"
+    public_ip_address_id = "${azurerm_public_ip.public_ip.id}"
   }
 }
 
@@ -72,5 +73,15 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = "${azurerm_virtual_network.azure_network.name}"
   address_prefix       = "${var.address_prefix}"
   resource_group_name  = "${var.GBM_group_name}"
+}
+
+resource "azurerm_public_ip" "public_ip" {
+  name                         = "public_ip"
+  location                     = "${var.vm_location}"
+  public_ip_address_allocation = "Dynamic"
+  resource_group_name = "${var.GBM_group_name}"
+  tags {
+    environment = "Production"
+  }
 }
 
