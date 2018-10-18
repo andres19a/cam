@@ -136,40 +136,32 @@ variable "address_prefix" {
   description = "Generated"
 }
 
-variable "managed_disk_name" {
+variable "azure_disk_name" {
   type = "string"
   description = "Generated"
 }
 
-variable "managed_disk_data_disk_location" {
+variable "azure_disk_managed_disk_type" {
   type = "string"
-  description = "Generated"
+  description = "Must be either Standard_LRS or Premium_LRS."
+  default = "Standard_LRS"
 }
 
-variable "managed_disk_data_disk_storage_account_type" {
+variable "azure_disk_managed_disk_create_option" {
   type = "string"
-  description = "Generated"
+  description = "Values are Attach, FromImage or Empty"
+  default = "Attach"
 }
 
-variable "managed_disk_data_disk_create_option" {
+variable "azure_disk_managed_disk_lun" {
   type = "string"
-  description = "Other choices are Import, Empty, Copy, FromImage"
-  default = "Empty"
+  description = "Specifies the logical unit number of the data disk"
+  default = "2"
 }
 
-variable "managed_disk_data_disk_size_gb" {
+variable "azure_disk_managed_disk_size_gb" {
   type = "string"
-  description = "Generated"
-}
-
-variable "managed_disk_data_disk_delete" {
-  type = "string"
-  description = "Delete the data disk automatically when deleting the VM"
-  default = "true"
-}
-
-variable "managed_disk_data_disk_lun" {
-  type = "string"
-  description = "Generated"
+  description = "Specifies the size of the data disk in gigabytes"
+  default = "1023"
 }
 
