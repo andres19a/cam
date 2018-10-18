@@ -446,7 +446,7 @@
       "label": "Managed Disk Data Disk Create Option",
       "description": "Other choices are Import, Empty, Copy, FromImage",
       "type": "string",
-      "default": "FromImage",
+      "default": "Empty",
       "validation": "",
       "group_name": "azurerm_managed_disk_storage",
       "required": true,
